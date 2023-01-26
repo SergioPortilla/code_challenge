@@ -1,0 +1,54 @@
+---
+import HeaderIsland from '@organism/header-island';
+import BodyIsland from '@organism/body-island';
+import pokemonLogo from '/assets/svg/pokemon-logo.svg';
+
+
+export interface Props {
+	title: string;
+}
+
+const { title } = Astro.props;
+---
+
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width" />
+        <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+		<meta name="generator" content={Astro.generator} />
+		<title>{title}</title>
+	</head>
+	<body>
+		<HeaderIsland/>
+		<img src={pokemonLogo} alt="pokemon logo" class="logo_pokemon" />
+		<BodyIsland>
+		    <slot />
+		</BodyIsland>
+	</body>
+</html>
+<style is:global>
+	:root {
+		--accent: 124, 58, 237;
+		--accent-gradient: linear-gradient(45deg, rgb(var(--accent)), #da62c4 30%, white 60%);
+	}
+	html {
+		font-family: system-ui, sans-serif;
+	}
+	body {
+		background-color: #D5D5D5;
+	    margin: 0;
+	    display: flex;
+	    align-items: center;
+	    flex-direction: column;
+	    padding-top: 7rem;
+	}
+	code {
+		font-family: Menlo, Monaco, Lucida Console, Liberation Mono, DejaVu Sans Mono,
+			Bitstream Vera Sans Mono, Courier New, monospace;
+	}
+	.logo_pokemon {
+	    height: 4rem;
+	}
+</style>

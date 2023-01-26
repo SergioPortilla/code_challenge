@@ -1,0 +1,32 @@
+{
+  "name": "code_challenge",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "nx exec -- vite build",
+    "lint": "nx exec -- eslint \"src/**/*.ts*\"",
+    "prettier-format": "prettier --write --plugin-search-dir=.main ."
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "nx": {
+    "targets": {}
+  },
+  "dependencies": {
+    "@astrojs/partytown": "^1.0.2",
+    "@types/react": "^18.0.21",
+    "@types/react-dom": "^18.0.6",
+    "react": "^18.0.0",
+    "react-is": "^18.2.0"
+  },
+  "devDependencies": {
+    "@typescript-eslint/parser": "^5.49.0",
+    "eslint": "^8.32.0",
+    "prettier": "^2.8.3",
+    "typescript": ">=2.8.0",
+    "prettier-plugin-astro": "^0.7.2"
+  }
+}

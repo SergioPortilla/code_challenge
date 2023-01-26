@@ -1,0 +1,20 @@
+---
+import Layout from '@layouts/Layout.astro';
+import PokeCard from '@atom/poke-card/poke-card';
+import { PokemonTypeConfig } from '../core/const/pokemon-type';
+import type { PokemonTypes } from '../domain/pokemon-types';
+
+
+const objetito = Object.keys(PokemonTypeConfig);
+
+---
+
+<Layout title="Select ">
+	<main>
+
+
+		{objetito.map(key => <PokeCard client:load  type={key as PokemonTypes}/>)}
+
+	</main>
+</Layout>
+
