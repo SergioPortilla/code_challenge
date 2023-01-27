@@ -21,7 +21,7 @@ const { title } = Astro.props;
 		<title>{title}</title>
 	</head>
 	<body>
-		<HeaderIsland/>
+		<HeaderIsland client:only="react"/>
 		<img src={pokemonLogo} alt="pokemon logo" class="logo_pokemon" />
 		<BodyIsland>
 		    <slot />

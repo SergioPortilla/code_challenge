@@ -1,5 +1,8 @@
-import type { PokemonTypes } from "@core/types/pokemon-types";
+import type { Pokemon } from '@core/domain/pokemon';
+import type { Type } from '@core/domain/type';
 
 export interface PokeCardInterface {
-  type: PokemonTypes;
+  types: Type[];
+
+  poke: Pokemon
 }

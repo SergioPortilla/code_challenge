@@ -13,6 +13,7 @@ const Header: FC<any> = ({ _type, children }) => {
         justifyContent: "center",
         gap: "0.2rem",
         top: 0,
+        zIndex: 5
       }}
     >
       {children}
