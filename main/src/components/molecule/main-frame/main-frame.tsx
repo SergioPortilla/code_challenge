@@ -4,7 +4,7 @@ const MainFrame: FC<any> = ({ children }) => {
   return (
     <div
       style={{
-        margin: "1.5rem",
+        margin: "0 1.5rem",
         width: "80vw",
         minHeight: "20rem",
         backgroundColor: "white",

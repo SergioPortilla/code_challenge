@@ -1,6 +1,6 @@
 ---
 import Layout from '@layouts/Layout.astro';
-import PokeList from '@molecule/poke-list';
+import MainIsland from '@organism/main-island';
 
 
 
@@ -8,7 +8,7 @@ import PokeList from '@molecule/poke-list';
 
 <Layout title="Select ">
 	<main>
-        <PokeList client:only="react"  />
+        <MainIsland client:only="react"  />
 	</main>
 </Layout>
 

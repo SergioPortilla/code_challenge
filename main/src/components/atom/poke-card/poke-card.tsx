@@ -1,32 +1,45 @@
 import type { FC } from 'react';
 import type { PokeCardInterface } from './poke-card.d';
 import type { PokemonConfigInterface } from '@core/types/pokemon-types';
-import { PokemonTypeConfig } from '@core/const/pokemon-type';
+import type { Type } from '@core/domain/type';
+import { getPokemonTypeImage, PokemonTypeConfig } from '@core/const/pokemon-type';
 import {
   CardBackground,
   CardFooter,
   CardId,
-  CardImage, CardText, CardType, CarTypeContainer, Content,
+  CardImage,
+  CardText,
+  CarTypeContainer,
+  Content,
   RibbonCard,
   RibbonCardBack
 } from '@atom/poke-card/poke-card.styled';
+import Icon from '@atom/icon/icon';
 
 const PokeCard: FC<PokeCardInterface> = ({ types, poke }) => {
-  const firstType: PokemonConfigInterface = PokemonTypeConfig[types[0].type.name];
+  const getConfig = (type: Type) => PokemonTypeConfig[type.type.name];
 
-  const image = poke.sprites.other ? poke.sprites.other['official-artwork'].front_default : poke.sprites.front_default;
+  const firstType: PokemonConfigInterface = types ? getConfig(types[0]) : PokemonTypeConfig.none ;
+  const backgroundColors = poke.types?.map(type => getConfig(type).background) || [PokemonTypeConfig.none.background]
+  const image = types && poke.sprites.other['official-artwork'].front_default;
+  const abilities = poke.abilities?.map(ability => ability.ability.name).join(", ");
+
   return (
-    <Content>
-      <CardBackground color={firstType.background}>
+    <Content {...firstType}>
+      <CardBackground background={backgroundColors}>
         <CardId>{poke.id}</CardId>
-        <CardImage src={image} alt={poke.id.toString()}/>
+        { !types ?
+          <CardImage src="/assets/pokeball_loading.gif" alt="loading"/> :
+          <CardImage src={image} alt={`${poke.id}`}/>
+        }
       </CardBackground>
       <CardFooter>
-        <RibbonCardBack color={firstType.color} />
-        <RibbonCard color={firstType.color} >{poke.name}</RibbonCard>
-        <CardText>{poke.abilities.map(ability => ability.ability.name).join(", ")}</CardText>
+        <RibbonCardBack {...firstType} />
+        <RibbonCard {...firstType} >{poke.name}</RibbonCard>
+        <CardText>{abilities}</CardText>
         <CarTypeContainer>
-        {types.map(type => <CardType src={PokemonTypeConfig[type.type.name].image}/>)}
+          {types?.map((type: Type) =>
+            <Icon key={type.type.name} alt={type.type.name} src={getPokemonTypeImage(type.type.name)}/>)}
         </CarTypeContainer>
       </CardFooter>
     </Content>

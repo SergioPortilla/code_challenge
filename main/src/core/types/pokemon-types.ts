@@ -16,11 +16,10 @@ export type PokemonTypes =
   | "psychic"
   | "rock"
   | "steel"
-  | "water";
+  | "water"
+  | "none";
 
 export interface PokemonConfigInterface {
-  image: string;
   background: string;
   color: string;
-  name: string;
 }

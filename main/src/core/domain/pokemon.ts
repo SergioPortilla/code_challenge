@@ -1,6 +1,15 @@
-import type { PokemonDetail } from '@core/domain/pokemon-detail';
+import type { ResultApi } from '@core/domain/result-api';
+import type { Sprites } from '@core/domain/sprites';
+import type { Type } from '@core/domain/type';
+import type { Abilities } from '@core/domain/abilities';
 
-export interface Pokemon extends PokemonDetail {
-    name: string;
-    url: string;
+export interface Pokemon extends ResultApi {
+    held_items: string[];
+    id: number;
+    is_default: boolean
+    location_area_encounters: string;
+    order: number
+    sprites: Sprites;
+    types: Type[];
+    abilities: Abilities[];
 }

@@ -4,6 +4,7 @@
     "jsx": "react-jsx",
     "jsxImportSource": "react",
     "baseUrl": ".",
+    "types": ["astro/client"],
     "paths": {
       "@atom/*": ["src/components/atom/*"],
       "@molecule/*": ["src/components/molecule/*"],

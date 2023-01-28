@@ -1,7 +1,6 @@
 ---
 import Layout from '@layouts/Layout.astro';
 import Card from '@atom/Card.astro';
-import Counter from '@atom/counter/Counter';
 
 const someProps = {
 	count: 0,
@@ -40,9 +39,6 @@ const someProps = {
 				body="Come say hi to our amazing Discord community. ❤️"
 			/>
 		</ul>
-		<Counter {...someProps} client:visible>
-			<h1>Hello, React!</h1>
-		</Counter>
 	<div style={{width: '400px', height: '400px'}}>
     </div>
 </Layout>

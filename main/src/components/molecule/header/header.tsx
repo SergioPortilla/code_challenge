@@ -7,7 +7,7 @@ const Header: FC<any> = ({ _type, children }) => {
       style={{
         backgroundColor: background_100,
         width: "100vw",
-        height: "5.5rem",
+        height: "5rem",
         position: "fixed",
         display: "flex",
         justifyContent: "center",
