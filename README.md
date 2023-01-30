@@ -2,7 +2,7 @@
 <h1>Code challenge</h1>
 Second test for the hiring process
 
-[Applications](#applications)
+[Application](#application)
 &nbsp; &nbsp; &nbsp;
 [Decisions outcomes](#decisions-outcomes)
 &nbsp; &nbsp; &nbsp;
@@ -11,7 +11,7 @@ Second test for the hiring process
 <hr>
 </div>
 
-## Applications
+## Application
 
 ## Decisions outcomes
 

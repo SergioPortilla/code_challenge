@@ -1,0 +1,12 @@
+---
+import LayoutInfo from '@layouts/layout-info.astro';
+import InfoIsland from '@organism/info-island';
+
+---
+
+<LayoutInfo title="info">
+    <img src="https://images3.alphacoders.com/950/thumb-1920-950656.jpg" alt="background-pokemon" style="z-index:-2; width: 100%; position: absolute; bottom: 0"/>
+	<main>
+        <InfoIsland client:only="react"/>
+	</main>
+</Layout>
