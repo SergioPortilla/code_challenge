@@ -1,3 +1,5 @@
+import type { ResultApi } from '@core/domain/result-api';
+
 export interface Abilities {
-  ability: { name: string; url: string}
+  ability: ResultApi;
 }

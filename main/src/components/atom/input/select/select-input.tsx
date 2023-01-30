@@ -1,5 +1,5 @@
 import type { FC } from 'react';
-import type { SelectInputInterface } from './select-input.d';
+import type { SelectInputInterface } from './select-input';
 
 const SelectInput: FC<SelectInputInterface> = ({onSelect}) => {
   return <select onChange={onSelect}>

@@ -21,8 +21,3 @@ export const TagContent = styled.div`
   gap: 0.4rem;
   align-items: center;
 `
-export const TagClose = styled.div`
-  color: #e3e3e3;
-  font-size: .8rem;
-  padding-left: .6rem;
-`

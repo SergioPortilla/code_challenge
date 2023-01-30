@@ -1,5 +1,6 @@
 import { Pokemon } from '@core/domain/pokemon';
 
 export interface PokeListInterface {
-  pokemonList: Required<Pokemon>[];
+  showedPokemonList: Required<Pokemon>[];
+  pokemonList: Record<string, Pokemon>;
 }

@@ -1,12 +1,11 @@
-import type { MenuOptionsType } from "../types/menu-options.type";
-import all from "/assets/svg/all-option.svg";
-import detail from "/assets/svg/detail-option.svg";
-import info from "/assets/svg/info-option.svg";
-import settings from "/assets/svg/settings-option.svg";
+import type { MenuOptionsInterface, MenuOptionsType } from "../types/menu-options.type";
+import { blue_poke, green_poke, red_poke, yellow_poke } from '../../../public/assets/colors/colors';
 
-export const MENU_OPTIONS: Array<MenuOptionsType> = [
-  { icon: all, backgroundColor: "#D6C44A", title: "See all" },
-  { icon: detail, backgroundColor: "#C90F0F", title: "Details" },
-  { icon: info, backgroundColor: "#4C9DB2", title: "Info" },
-  { icon: settings, backgroundColor: "#51A74F", title: "Settings" },
+export const MENU_OPTIONS: MenuOptionsInterface[] = [
+  { slug: undefined, name: 'all', backgroundColor: yellow_poke, title: "See all" },
+  { slug: 'details', name: 'detail', backgroundColor: red_poke, title: "Details" },
+  { slug: 'info', name: 'info', backgroundColor: blue_poke, title: "Info" },
+  { slug: 'settings', name: 'settings', backgroundColor: green_poke, title: "Settings" },
 ];
+
+export const getMenuImage = (name: MenuOptionsType) => `/assets/svg/${name}.svg`;

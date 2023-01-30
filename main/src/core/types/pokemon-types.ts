@@ -1,5 +1,5 @@
 export type PokemonTypes =
-  | "bug"
+  "bug"
   | "dark"
   | "dragon"
   | "electric"

@@ -1,7 +1,8 @@
 import type { FC } from "react";
+import type { HeaderInterface } from "./header.d";
 import { background_100 } from "../../../../public/assets/colors/colors";
 
-const Header: FC<any> = ({ _type, children }) => {
+const Header: FC<HeaderInterface> = ({ children }) => {
   return (
     <div
       style={{

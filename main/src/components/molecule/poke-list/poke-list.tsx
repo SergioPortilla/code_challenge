@@ -1,13 +1,21 @@
 import type { FC } from 'react';
 import PokeCard from '@atom/poke-card/poke-card';
 import type { PokeListInterface } from '@molecule/poke-list/poke-list.d';
+import { Content, EmptyListContainer, EmptyListImage } from './poke-list.styled';
 
 
-const PokeList: FC<PokeListInterface> = ({pokemonList}) => {
+const PokeList: FC<PokeListInterface> = ({showedPokemonList, pokemonList}) => {
 
-  return <div style={{display: 'flex', flexWrap: 'wrap', gap: '10px', justifyContent: 'center'}}>{!!pokemonList.length &&
-    pokemonList.map(pokemon =>
-      <PokeCard key={pokemon.name} poke={pokemon} types={pokemon.types}/>)}</div>
+  return (
+    <Content>
+      {!!showedPokemonList.length ? showedPokemonList.map(pokemon =>
+        <PokeCard key={pokemon.name} poke={pokemonList[pokemon.name]}/>) :
+        <EmptyListContainer>
+          <EmptyListImage src="/assets/not_found.png" alt="pokemon not found"/>
+        </EmptyListContainer>
+      }
+    </Content>
+  )
 }
 
 export default PokeList;

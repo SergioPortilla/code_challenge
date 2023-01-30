@@ -1,14 +1,19 @@
 ---
+import { MenuOptionsType } from '@core/types/menu-options.type';
+import { MENU_OPTIONS } from '@core/const/menu-options';
 import HeaderIsland from '@organism/header-island';
 import BodyIsland from '@organism/body-island';
+import PageLayoutProps from './layout.d';
 import pokemonLogo from '/assets/svg/pokemon-logo.svg';
 
 
-export interface Props {
-	title: string;
-}
+export interface Props extends PageLayoutProps {}
 
-const { title } = Astro.props;
+const { slug } = Astro.params;
+const page = MENU_OPTIONS.find((page) => page.slug === slug);
+if (!page) return Astro.redirect("/404");
+const { title, text } = page;
+const currentTitle = Astro.props.title;
 ---
 
 <!DOCTYPE html>
@@ -21,7 +26,7 @@ const { title } = Astro.props;
 		<title>{title}</title>
 	</head>
 	<body>
-		<HeaderIsland client:only="react"/>
+		<HeaderIsland client:only="react" page={currentTitle} />
 		<BodyIsland>
 		    <slot />
 		</BodyIsland>
@@ -50,6 +55,7 @@ const { title } = Astro.props;
 	}
 	.logo_pokemon {
 	    height: 2.5rem;
+	    margin: 2rem;
 	}
 	.menu_option {
 	    width: 6rem;
@@ -57,7 +63,9 @@ const { title } = Astro.props;
         padding: 0.7rem 0.5rem;
         position: relative;
         cursor: pointer;
+        text-decoration: none;
 	}
+
 	.menu_option_background {
 	    transition: clip-path 0.6s cubic-bezier(0.22, 1, 0.36, 1);
 	    position: absolute;
@@ -89,5 +97,14 @@ const { title } = Astro.props;
     }
     .menu_option:hover .menu_option_background {
         clip-path: inset(0 0 0 0);
+    }
+    .menu_selected .menu_option_background {
+        clip-path: inset(0 0 0 0);
+    }
+    .menu_selected img {
+        filter: brightness(20%);
+    }
+    .menu_selected p {
+        color: black;
     }
 </style>

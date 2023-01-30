@@ -1,5 +1,5 @@
 
-export interface ResultApi {
-  name: string;
+export interface ResultApi<T = string> {
+  name: T;
   url: URL;
 }

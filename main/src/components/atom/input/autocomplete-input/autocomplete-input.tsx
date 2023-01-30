@@ -1,14 +1,14 @@
 import type { FC } from 'react';
+import { useEffect, useState } from 'react';
 import {
   AutocompleteContainer,
   MainAutocompleteInput,
   SuggestionsModal
-} from '@atom/autocomplete-input/autocomplete-input.styled';
-import { useEffect, useState } from 'react';
+} from '@atom/input/autocomplete-input/autocomplete-input.styled';
 
-export const AutocompleteInput: FC = ({suggestions, children}) => {
+export const AutocompleteInput: FC<any> = ({suggestions, children}) => {
   const [isSuggestionsVisible, setIsSuggestionsVisible] = useState(false);
-  const [suggestionList, setSuggestionList] = useState(suggestions || []);
+  const [_suggestionList, setSuggestionList] = useState(suggestions || []);
 
   useEffect(() => {
     setSuggestionList(suggestions);

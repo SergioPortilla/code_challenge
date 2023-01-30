@@ -1,7 +1,4 @@
-import type {
-  PokemonConfigInterface,
-  PokemonTypes,
-} from "../types/pokemon-types";
+import type { PokemonConfigInterface, PokemonTypes } from "../types/pokemon-types";
 import { loading_color } from '../../../public/assets/colors/colors';
 
 

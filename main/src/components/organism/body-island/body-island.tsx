@@ -1,7 +1,7 @@
-import type { FC } from "react";
+import type { ConsumerProps, FC } from "react";
 import MainFrame from "@molecule/main-frame";
 
-const BodyIsland: FC<any> = ({ children }) => {
+const BodyIsland: FC<ConsumerProps<unknown>> = ({ children }) => {
   return <MainFrame>{children}</MainFrame>;
 };
 

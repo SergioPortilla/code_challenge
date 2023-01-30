@@ -1,14 +1,16 @@
 ---
 import Layout from '@layouts/Layout.astro';
+import FilterIsland from '@organism/filters-island';
 import MainIsland from '@organism/main-island';
-
-
+import PaginationIsland from '@organism/pagination-island';
 
 ---
 
-<Layout title="Select ">
+<Layout title="all">
 	<main>
-        <MainIsland client:only="react"  />
+        <FilterIsland client:only="react" />
+        <PaginationIsland client:only="react" />
+        <MainIsland client:only="react" />
 	</main>
 </Layout>
 

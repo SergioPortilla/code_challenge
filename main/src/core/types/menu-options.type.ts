@@ -1,5 +1,12 @@
-export interface MenuOptionsType {
+export type MenuOptionsType =
+  'all'
+  | 'detail'
+  | 'info'
+  | 'settings'
+
+export interface MenuOptionsInterface {
+  slug?: string;
   backgroundColor: string;
-  icon: string;
+  name: MenuOptionsType;
   title: string;
 }
