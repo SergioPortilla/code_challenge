@@ -1,0 +1,8 @@
+.main_frame_container {
+    margin: 0 1.5rem;
+    width: 80vw;
+    min-height: 20rem;
+    background-color: white;
+    padding: 3rem 1rem;
+    border-radius: 0.2rem
+}

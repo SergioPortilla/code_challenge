@@ -1,7 +1,7 @@
 import type { FC } from 'react';
 import type { TagInterface } from './tag.d';
 import { BackgroundTag, TagContent } from '@atom/tag/tag.styled';
-import Icon from '@atom/icon/icon';
+import Icon from '@atom/icon';
 import close from '/assets/svg/close.svg'
 
 const Tag: FC<TagInterface> = ({children, onClose = null, background = "#000" }) => {

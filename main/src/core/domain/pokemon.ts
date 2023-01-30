@@ -11,5 +11,12 @@ export interface Pokemon extends ResultApi {
     order: number;
     sprites: Sprites;
     types: Type[];
+    stats: Stat[];
     abilities: Abilities[];
+}
+
+export interface Stat {
+    base_stat: number;
+    effort: number;
+    stat: ResultApi;
 }

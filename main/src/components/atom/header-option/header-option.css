@@ -1,0 +1,50 @@
+.menu_option {
+    width: 6rem;
+    text-align: center;
+    padding: 0.7rem 0.5rem;
+    position: relative;
+    cursor: pointer;
+    text-decoration: none;
+}
+
+.menu_option_background {
+    transition: clip-path 0.6s cubic-bezier(0.22, 1, 0.36, 1);
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    bottom: 0;
+    left: 0;
+    clip-path: inset(93% 0 0 0);
+    z-index: -1;
+}
+.menu_option img {
+    height: 2.2rem;
+    filter: brightness(50%);
+    transition: filter 0.6s cubic-bezier(0.22, 1, 0.36, 1);
+}
+.menu_option p {
+    transition: color 0.6s cubic-bezier(0.22, 1, 0.36, 1);
+    font-size: 1rem;
+    margin: 0;
+    color: #919191;
+    font-weight: bold;
+    text-transform: uppercase;
+}
+.menu_option:hover p {
+    color: black;
+}
+.menu_option:hover img {
+    filter: brightness(20%);
+}
+.menu_option:hover .menu_option_background {
+    clip-path: inset(0 0 0 0);
+}
+.menu_selected .menu_option_background {
+    clip-path: inset(0 0 0 0);
+}
+.menu_selected img {
+    filter: brightness(20%);
+}
+.menu_selected p {
+    color: black;
+}

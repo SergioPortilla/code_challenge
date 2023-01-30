@@ -1,20 +1,9 @@
 import type { FC } from "react";
+import type { MainFrameInterface } from './main-frame.d';
+import {} from './main-frame.css';
 
-const MainFrame: FC<any> = ({ children }) => {
-  return (
-    <div
-      style={{
-        margin: "0 1.5rem",
-        width: "80vw",
-        minHeight: "20rem",
-        backgroundColor: "white",
-        padding: "3rem 1rem",
-        borderRadius: "0.2rem",
-      }}
-    >
-      {children}
-    </div>
-  );
+const MainFrame: FC<MainFrameInterface> = ({children}) => {
+  return <div className="main_frame_container">{children}</div>;
 };
 
 export default MainFrame;

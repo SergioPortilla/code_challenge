@@ -2,6 +2,6 @@ import { ReactNode } from 'react';
 
 export interface TagInterface {
   children?: ReactNode;
-  onClose: () => void;
+  onClose?: () => void;
   background: string;
 }

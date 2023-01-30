@@ -69,6 +69,11 @@ export const CardImage = styled.img`
   z-index: 2;
   top: 12%
 `
+export const CardImageLoad = styled.img`
+  ${CardImage};
+  width: 70%;
+  height: 70%;
+`
 
 export const CardId = styled.b`
   top: -1rem;

@@ -1,0 +1,11 @@
+.header_container {
+    background-color: #232323;
+    width: 100vw;
+    height: 5rem;
+    position: fixed;
+    display: flex;
+    justify-content: center;
+    gap: 0.2rem;
+    top: 0;
+    z-index: 5;
+}

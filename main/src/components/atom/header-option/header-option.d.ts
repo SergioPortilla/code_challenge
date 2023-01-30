@@ -5,5 +5,5 @@ export interface HeaderOptionInterface {
   name: MenuOptionsType;
   title: string;
   slug?: string;
-  page: MenuOptionsType;
+  page?: MenuOptionsType;
 }

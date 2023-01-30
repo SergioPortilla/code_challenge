@@ -9,8 +9,9 @@ import { getPokemonListByAbility } from '@core/adapters/get-pokemon-list-by-abil
 import { useStore } from '@nanostores/react';
 import { showedPokeList } from '@core/store/showed-poke-list.nano';
 import { getPokemonListByType } from '@core/adapters/get-pokemon-list-by-type';
+import type { PageLayoutProps } from '@layouts/layout';
 
-const FilterIsland: FC = () => {
+const FilterIsland: FC<PageLayoutProps> = () => {
   const [abilities, setAbilities] = useState<ResultApi[]>();
   const [types, setTypes] = useState<ResultApi[]>();
   const [temp, setTemp] = useState<string>("");

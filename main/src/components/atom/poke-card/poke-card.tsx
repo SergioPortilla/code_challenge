@@ -8,13 +8,14 @@ import {
   CardFooter,
   CardId,
   CardImage,
+  CardImageLoad,
   CardText,
   CarTypeContainer,
   Content,
   RibbonCard,
   RibbonCardBack
 } from '@atom/poke-card/poke-card.styled';
-import Icon from '@atom/icon/icon';
+import Icon from '@atom/icon';
 
 const PokeCard: FC<PokeCardInterface> = ({ poke }) => {
   const getConfig = (type: Type) => PokemonTypeConfig[type.type.name];
@@ -29,7 +30,7 @@ const PokeCard: FC<PokeCardInterface> = ({ poke }) => {
       <CardBackground background={backgroundColors}>
         <CardId>{poke.id}</CardId>
         { !poke.types ?
-          <CardImage src="/assets/pokeball_loading.gif" alt="loading"/> :
+          <CardImageLoad src="/assets/pokeball_loading.gif" alt="loading"/> :
           <CardImage src={image} alt={`${poke.id}`}/>
         }
       </CardBackground>

@@ -10,8 +10,9 @@ export const BackgroundTag = styled.div<{color: string}>`
   border-radius: 5rem;
   height: 1rem;
   padding: .2rem;
-  background-color: #000;
-  ${({color}) => css`background-color: ${color}`}
+  ${({color}) => css`
+    background-color: ${color};
+  `}
 `;
 export const TagContent = styled.div`
   font-size: .8rem;

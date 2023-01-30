@@ -1,5 +1,5 @@
 import type { FC } from 'react';
-import PokeCard from '@atom/poke-card/poke-card';
+import PokeCard from '@atom/poke-card';
 import type { PokeListInterface } from '@molecule/poke-list/poke-list.d';
 import { Content, EmptyListContainer, EmptyListImage } from './poke-list.styled';
 

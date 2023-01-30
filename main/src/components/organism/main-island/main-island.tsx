@@ -18,8 +18,6 @@ const MainIsland: FC = () => {
     const params = new URLSearchParams(filter).toString();
     getPokemonList(undefined, params)
       .then((response: ResponseApi<Pokemon[]>) => {
-        config.setKey('prev', response.previous);
-        config.setKey('next', response.next);
         config.setKey('pokeAmount', response.count);
         showedPokeList.set(response.results);
       });
