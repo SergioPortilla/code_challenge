@@ -1,6 +1,8 @@
 # build output
 dist/
 .output/
+.idea/
+.vscode/
 
 # dependencies
 node_modules/
@@ -108,4 +110,3 @@ dist
 
 # TernJS port file
 .tern-port
-/.vscode/
