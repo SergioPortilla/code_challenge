@@ -1,6 +1,6 @@
-import { API_ROUTE } from '@core/const/api-route';
 import type { Pokemon } from '@core/domain/pokemon';
 import type { Ability } from '@core/domain/ability';
+import { API_ROUTE } from '@core/const/api-route';
 
 type getAbilityListType = (ability?: string) => Promise<Pokemon[]>;
 

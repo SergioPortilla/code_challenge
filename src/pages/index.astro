@@ -1,16 +1,25 @@
 ---
-import Layout from '@layouts/common-layout.astro';
-import FilterIsland from '@organism/filters-island';
-import MainIsland from '@organism/main-island';
-import PaginationIsland from '@organism/pagination-island';
+import { API_ROUTE } from "@core/const/api-route";
+import Layout from "@layouts/common-layout.astro";
+import FilterIsland from "@organism/filters-island";
+import MainIsland from "@organism/main-island";
+import PaginationIsland from "@organism/pagination-island";
+
+const urlAbility = import.meta.env.PUBLIC_POKE_API + API_ROUTE.ability;
+const resAbility = await fetch(urlAbility);
+const ability = await resAbility.json();
+
+const urlType = import.meta.env.PUBLIC_POKE_API + API_ROUTE.type;
+const resType = await fetch(urlType);
+const type = await resType.json();
 
 ---
 
 <Layout title="all">
-	<main>
-        <FilterIsland client:only="react" />
-        <PaginationIsland client:only="react" />
-        <MainIsland client:only="react" />
-	</main>
+  <main>
+    <FilterIsland client:only="react" abilityList={ability.results} typeList={type.results} />
+    <PaginationIsland client:only="react" />
+    <MainIsland client:only="react" />
+    <PaginationIsland client:only="react" />
+  </main>
 </Layout>
-

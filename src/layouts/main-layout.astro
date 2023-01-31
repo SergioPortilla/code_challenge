@@ -1,16 +1,10 @@
 ---
 import { MENU_OPTIONS } from '@core/const/menu-options';
-import PageLayoutProps from './layout.d';
-import pokemonLogo from '/assets/svg/pokemon-logo.svg';
 
 
-export interface Props extends PageLayoutProps {}
-
-const { slug } = Astro.params;
-const page = MENU_OPTIONS.find((page) => page.slug === slug);
-if (!page) return Astro.redirect("/404");
-const { title, text } = page;
-const currentTitle = Astro.props.title;
+const { pathname } = Astro.url;
+const page = MENU_OPTIONS.find((page) => page.slug === pathname);
+const title = page ? page.title : 'Pokemon List app';
 ---
 
 <!DOCTYPE html>

@@ -1,6 +1,9 @@
+import type { ReactNode } from 'react';
+
 export interface ButtonInterface extends ButtonTypeInterface {
-  children?: string;
+  children?: ReactNode | string;
   onClick?: () => void;
+  href?: string;
 }
 
 export interface ButtonTypeInterface {

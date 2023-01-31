@@ -8,5 +8,5 @@ export interface PaginationInterface {
 }
 
 export const config = map<PaginationInterface>({
-  limit: 10, offset: 0, page: 1
+  limit: 10, offset: 0, page: 1, pokeAmount: 1279
 })

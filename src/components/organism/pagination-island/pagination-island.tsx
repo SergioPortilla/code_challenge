@@ -26,7 +26,7 @@ const PaginationIsland: FC = () => {
     searchPokemonList(undefined, {limit, offset: $config.offset});
   }
 
-  const handleChange = (event: ChangeEvent<number>, value: number) => {
+  const handleChange = (event: ChangeEvent<unknown>, value: number) => {
     const {limit} = $config;
     config.setKey('page', value);
     config.setKey('offset', limit * (value - 1));

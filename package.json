@@ -1,6 +1,5 @@
 {
   "name": "code_challenge",
-  "type": "module",
   "version": "0.0.1",
   "private": true,
   "scripts": {
@@ -9,7 +8,9 @@
     "build": "astro build",
     "preview": "astro preview",
     "astro": "astro",
-    "prettier-format": "prettier --write --plugin-search-dir=. ."
+    "prettier-format": "prettier --write --plugin-search-dir=. .",
+    "pretest": "tsc --incremental -p tests/tsconfig.json",
+    "test": "playwright test -c tests-out"
   },
   "dependencies": {
     "@astrojs/partytown": "^1.0.3",
@@ -29,6 +30,8 @@
     "styled-components": "^5.3.6"
   },
   "devDependencies": {
+    "@playwright/test": "^1.30.0",
+    "@types/node": "^18.11.18",
     "@types/styled-components": "^5.1.26",
     "@typescript-eslint/parser": "^5.49.0",
     "eslint": "^8.33.0",

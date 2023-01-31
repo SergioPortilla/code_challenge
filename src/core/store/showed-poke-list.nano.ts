@@ -7,7 +7,6 @@ export const showedPokeList = atom<Pokemon[]>([])
 
 showedPokeList.listen((value) => {
   !!value && value.map((pokemon) => {
-      console.log("algo")
       if (!pokemonList.get()[pokemon.name].types) {
         if (!pokemon.types) {
           getPokemonDetails(pokemon.url)

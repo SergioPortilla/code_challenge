@@ -6,6 +6,6 @@ const currentTitle = Astro.props.title;
 ---
 
 <MainLayout>
-    <HeaderIsland client:only="react" page={currentTitle} />
+    <HeaderIsland client:load page={currentTitle} />
     <slot />
 </MainLayout>

@@ -1,8 +1,8 @@
 import styled, { css } from "styled-components";
-import type { PokeTypeColor, PokeTypeBackground } from "./poke-card.d";
+import type { PokeTypeBackground, PokeTypeColor } from "./poke-card.d";
 
 export const CardTransitions = css`
-  transition: background-color 0.4s ease-in-out, width 0.6s ease-in-out, transform .15s cubic-bezier(.4,0,.2,1);
+  transition: background-color 0.4s ease-in-out, width 0.6s ease-in-out, transform .15s cubic-bezier(.4, 0, .2, 1);
 `;
 
 export const CardFooter = styled.div`
@@ -29,10 +29,10 @@ export const RibbonCard = styled.div<PokeTypeColor>`
   position: absolute;
   background-color: ${({color}) => color};
   box-shadow: rgb(0 0 0 / 15%) 0.6rem -0.7rem 0.3rem 0;
-  height: 2rem; 
+  height: 2rem;
   min-width: 4rem;
   left: -0.7rem;
-  top: 1rem; 
+  top: 1rem;
   z-index: 3;
   color: white;
   font-weight: bold;
@@ -55,7 +55,7 @@ export const CardBackground = styled.div<PokeTypeBackground>`
   justify-content: center;
   box-shadow: rgba(0, 0, 0, 0.35) 0 -50px 36px -28px inset;
   border-radius: 1rem 1rem 0 0;
-  ${({background}) => css` 
+  ${({background}) => css`
     background-image: linear-gradient(0deg, ${background[0]} 0%, ${background[1] || background[0]} 100%)`
   };
   ${CardTransitions};
@@ -94,16 +94,20 @@ export const CarTypeContainer = styled.div`
 `
 
 
-export const Content = styled.div<PokeTypeColor>`
+export const Content = styled.a<PokeTypeColor>`
   min-width: 15rem;
   border-radius: 1rem;
+  text-decoration: none;
+
   &:hover {
     transform: scale(1.1);
     box-shadow: rgba(100, 100, 111, 0.2) 0 7px 29px 0;
     z-index: 4;
+
     ${CardImage} {
       width: 100%;
     }
   }
+
   ${CardTransitions}
 `;

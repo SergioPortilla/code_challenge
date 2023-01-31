@@ -9,5 +9,9 @@ export interface Ability extends ResultApi {
   id: number;
   is_main_series: boolean;
   names: [];
-  pokemon: {pokemon: Pokemon}[];
+  pokemon: AbilityPokemon[];
+}
+
+interface AbilityPokemon {
+  pokemon: Pokemon
 }
