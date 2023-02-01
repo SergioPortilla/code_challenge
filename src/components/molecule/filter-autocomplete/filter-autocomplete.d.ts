@@ -13,6 +13,7 @@ export interface FilterAutocompleteInterface<T = unknown> {
     reason: AutocompleteChangeReason,
     details?: AutocompleteChangeDetails<T>,
   ) => void;
+  onInput?: (event: any) => void;
   options: T[];
   children?: ReactNode;
 }

@@ -29,6 +29,7 @@ export const FilterButton = styled.div<{ open: boolean }>`
   display: flex;
   flex-direction: column;
   align-items: center;
+  cursor: pointer;
   ${({open}) => open && css`
     flex-direction: column-reverse;
   `}
@@ -36,6 +37,7 @@ export const FilterButton = styled.div<{ open: boolean }>`
 
 export const FilterOptions = styled.div`
   display: flex;
+  flex-wrap: wrap;
   height: fit-content;
   width: 80%;
   gap: 1rem;

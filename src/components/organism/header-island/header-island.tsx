@@ -1,6 +1,6 @@
 import type { FC } from "react";
 import type { MenuOptionsInterface } from "@core/types/menu-options.type";
-import type { PageLayoutProps } from '@layouts/layout.d';
+import type { PageLayoutProps } from '@layouts/types/layout';
 import { MENU_OPTIONS } from "@core/const/menu-options";
 import HeaderOption from "@atom/header-option";
 import Header from "@molecule/header";

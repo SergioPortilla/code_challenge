@@ -8,10 +8,11 @@ export const FilterTitle = styled.div`
 `
 
 export const FilterInputContainer = styled.div`
-  width: 100%;
+  width: 32%;
   display: flex;
   align-items: end;
   gap: .5rem;
+  min-width: 3rem;
 `
 
 

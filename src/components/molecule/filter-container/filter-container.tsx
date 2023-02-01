@@ -1,5 +1,5 @@
-import type { FC } from 'react';
-import { useState } from 'react';
+import { FC, useState } from 'react';
+import type { FilterContainerInterface } from './filter-container.d';
 import {
   FilterButton,
   FilterContainerMain,
@@ -8,7 +8,7 @@ import {
   FilterText
 } from '@molecule/filter-container/filter-container.styled';
 
-const FilterContainer: FC<any> = ({children}) => {
+const FilterContainer: FC<FilterContainerInterface> = ({children}) => {
   const [isOpen, setOpened] = useState(false);
   const filterAssets = {
     0: {title: 'Apply filter', img: '/assets/svg/filter.svg'},

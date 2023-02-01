@@ -7,9 +7,9 @@ import { Content, EmptyListContainer, EmptyListImage } from './poke-list.styled'
 const PokeList: FC<PokeListInterface> = ({showedPokemonList, pokemonList}) => {
 
   return (
-    <Content>
+    <Content data-testid="text_1">
       {!!showedPokemonList.length ? showedPokemonList.map(pokemon =>
-        <PokeCard key={pokemon.name} poke={pokemonList[pokemon.name]}/>) :
+          <PokeCard key={pokemon.name} poke={pokemonList[pokemon.name]}/>) :
         <EmptyListContainer>
           <EmptyListImage src="/assets/not_found.png" alt="pokemon not found"/>
         </EmptyListContainer>

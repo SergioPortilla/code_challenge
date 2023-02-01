@@ -1,4 +1,4 @@
-import { FC, useEffect, useState } from 'react';
+import { FC, useState } from 'react';
 import type { ResultApi } from '@core/domain/result-api';
 import { createTheme, ThemeProvider } from '@mui/material';
 import { getPokemonDetails } from '@core/adapters/get-pokemon-detail';
@@ -7,45 +7,32 @@ import { getPokemonListByAbility } from '@core/adapters/get-pokemon-list-by-abil
 import { useStore } from '@nanostores/react';
 import { showedPokeList } from '@core/store/showed-poke-list.nano';
 import { getPokemonListByType } from '@core/adapters/get-pokemon-list-by-type';
-import type { PageLayoutProps } from '@layouts/layout';
 import FilterContainer from '@molecule/filter-container/filter-container';
 import { pokemonList } from '@core/store/poke-list.nano';
 import Button from '@atom/button';
 import FilterAutocomplete from '@molecule/filter-autocomplete';
+import type { LayoutFilterInterface } from '@layouts/types/layout-filter';
 
 
-const FilterIsland: FC<PageLayoutProps & any> = ({abilityList, typeList}) => {
-  const [abilities, setAbilities] = useState<ResultApi[]>();
-  const [types, setTypes] = useState<ResultApi[]>();
+const FilterIsland: FC<LayoutFilterInterface> = ({abilityList, typeList}) => {
   const [temp, setTemp] = useState<string>("");
-  const $showedPokeList = useStore(showedPokeList);
   const $pokeList = useStore(pokemonList);
 
-  useEffect(() => {
-    setAbilities(abilityList);
-    setTypes(typeList);
-  }, []);
 
   const getByIdOrName = () => {
     getPokemonDetails(undefined, temp)
       .then((pokemon: Pokemon | undefined) => showedPokeList.set(!!pokemon ? [pokemon] : []));
   }
 
-  const onChange = async (abilities: ResultApi[]) => {
-    showedPokeList.set([])
-    abilities.map(async ability => {
-      await getPokemonListByAbility(ability.name)
-        .then(a => showedPokeList.set(a))
-    })
+  const handlerList = async (values: ResultApi[], infoApi: (type?: string) => Promise<Pokemon[]>) => {
+    showedPokeList.set([]);
+    const listPokemon = await Promise.all(values.map(async value => await infoApi(value.name)));
+    showedPokeList.set(listPokemon.flat());
   }
 
-  const onChangeType = async (types: ResultApi[]) => {
-    showedPokeList.set([]);
-    types.map(async ability => {
-      await getPokemonListByType(ability.name)
-        .then(a => showedPokeList.set(a))
-    })
-  }
+  const onChangeAbility = async (abilities: ResultApi[]) => await handlerList(abilities, getPokemonListByAbility);
+
+  const onChangeType = async (types: ResultApi[]) => await handlerList(types, getPokemonListByType);
 
   const outerTheme = createTheme({palette: {mode: 'dark'}});
 
@@ -54,26 +41,24 @@ const FilterIsland: FC<PageLayoutProps & any> = ({abilityList, typeList}) => {
       <FilterAutocomplete
         multiple
         title="Abilities"
-        options={abilities as ResultApi[]}
+        options={abilityList as ResultApi[]}
         getOptionLabel={(option: ResultApi) => option.name}
-        onChange={(a, b) => onChange(b as ResultApi[])}
+        onChange={(a, b) => onChangeAbility(b as ResultApi[])}
       />
       <FilterAutocomplete
         title="Pokemon name or id"
         freeSolo
         options={Object.keys($pokeList)}
         getOptionLabel={(option: string) => option}
-        onChange={(a, b) => {
-          console.log(b)
-          setTemp(b as string)
-        }}
+        onChange={(a, b) => setTemp(b as string)}
+        onInput={(a) => setTemp(a.target.value as string)}
       >
         <Button onClick={getByIdOrName}><img src="/assets/svg/search.svg" alt="alt"/></Button>
       </FilterAutocomplete>
       <FilterAutocomplete
         multiple
         title="Types"
-        options={types as ResultApi[]}
+        options={typeList as ResultApi[]}
         getOptionLabel={(option: ResultApi) => option.name}
         onChange={(_a, value) => onChangeType(value as ResultApi[])}
       />

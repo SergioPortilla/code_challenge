@@ -3,7 +3,7 @@ import { API_ROUTE } from "@core/const/api-route";
 import Layout from "@layouts/common-layout.astro";
 import DetailIsland from "@organism/detail-island";
 export function getStaticPaths() {
-  return Array.from(Array(1200).keys())
+  return Array.from(Array(1279).keys())
     .map(t => ({ params: { detail: t+1 } }));
 }
 
